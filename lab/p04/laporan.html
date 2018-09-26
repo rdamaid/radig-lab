@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Auriza Akbar" />
+  <meta name="author" content="Arief Ansori" />
+  <meta name="date" content="2018-09-26" />
+  <title>Pengujian IC Logika 74LS86 XOR</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Pengujian IC Logika 74LS86 XOR</h1>
+<h2 class="author">Auriza Akbar</h2>
+<h2 class="author">Arief Ansori</h2>
+<h3 class="date">26 September 2018</h3>
+</div>
+<h1 id="pendahuluan">Pendahuluan</h1>
+<p>Rangkaian ini bertujuan untuk menguji kebenaran IC 74LS86. IC 74LS86 adalah IC logika digital yang menyediakan 4 gerbang logika XOR. IC ini memiliki 14 pin dalam bentuk <em>dual-inline package</em> (DIP).</p>
+<p>Pertama, dilakukan simulasi terlebih dahulu pada Logisim dan Verilog. Kemudian, layout rangkaian dirancang dengan menggunakan Fritzing. Akhirnya, rangkaian diimplementasikan menggunakan <em>breadboard</em> dengan <em>power supply</em> dari USB.</p>
+<h1 id="simulasi-logisim">Simulasi Logisim</h1>
+<h2 id="skema-rangkaian">Skema rangkaian</h2>
+<p>Berikut skema rangkaian untuk pengujian IC logika 7486 XOR. Berkas simulasi dapat diunduh di <a href="xor-test.circ" class="uri">xor-test.circ</a>.</p>
+<div class="figure">
+<img src="xor-test_logisim.gif" alt="Logisim: 7486" />
+<p class="caption">Logisim: 7486</p>
+</div>
+<h2 id="tabel-kebenaran">Tabel kebenaran</h2>
+<p>Berikut adalah tabel kebenaran dari simulasi rangkaian di atas.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">A</th>
+<th align="left">B</th>
+<th align="left">Y1</th>
+<th align="left">Y2</th>
+<th align="left">Y3</th>
+<th align="left">Y4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+<tr class="even">
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="left">1</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+<td align="left">0</td>
+</tr>
+</tbody>
+</table>
+<h1 id="simulasi-verilog">Simulasi Verilog</h1>
+<h2 id="kode-verilog">Kode Verilog</h2>
+<p>Berikut kode Verilog yang mendeskripsikan rangkaian ini. Terdapat dua modul, yaitu modul deskripsi gerbang logika XOR (<code>_xor</code>) dan modul pengujian (<code>_xor_test</code>). Pada modul <code>_xor</code>, digunakan <em>assignment</em> dengan operator biner <code>^</code> untuk XOR. Operator lainnya adalah: <code>&amp;</code>, <code>|</code>, dan <code>~</code> untuk AND, OR, dan NOT. Lalu, pada modul <code>_xor_test</code>, modul <code>_xor</code> dijalankan selama 4 detik, dengan perubahan nilai masukan A atau B tiap 1 detik. Semua nilai keluaran di-<em>dump</em> ke dalam berkas <code>dump.vcd</code>, yang dapat dilihat dengan GtkWave.</p>
+<div class="sourceCode"><pre class="sourceCode verilog"><code class="sourceCode verilog"><span class="kw">module</span> _xor(A, B, Y);
+    <span class="dt">input</span>   A, B;
+    <span class="dt">output</span>  Y;
+    <span class="kw">assign</span>  Y = A ^ B;
+<span class="kw">endmodule</span>
+
+<span class="kw">module</span> _xor_test;
+    <span class="dt">reg</span>     A, B;
+    <span class="dt">wire</span>    Y;
+    _xor    T(A, B, Y);
+
+    <span class="kw">initial</span> <span class="kw">begin</span>
+        <span class="dt">$dumpvars</span>;
+        <span class="dt">$monitor</span>(<span class="st">&quot;%d %d | %d&quot;</span>, A, B, Y);
+        A = <span class="dv">0</span>; B = <span class="dv">0</span>;
+    <span class="bn">#1</span>  A = <span class="dv">0</span>; B = <span class="dv">1</span>;
+    <span class="bn">#1</span>  A = <span class="dv">1</span>; B = <span class="dv">0</span>;
+    <span class="bn">#1</span>  A = <span class="dv">1</span>; B = <span class="dv">1</span>;
+    <span class="bn">#1</span>  <span class="dt">$finish</span>;
+    <span class="kw">end</span>
+<span class="kw">endmodule</span></code></pre></div>
+<h2 id="diagram-waktu">Diagram Waktu</h2>
+<p>Berikut tampilan diagram waktu hasil keluaran dari simulasi Verilog di atas.</p>
+<div class="figure">
+<img src="xor-test_waveform.png" alt="Diagram waktu" />
+<p class="caption">Diagram waktu</p>
+</div>
+<h1 id="eksperimen">Eksperimen</h1>
+<h2 id="skema-protoboard">Skema protoboard</h2>
+<p>Tampilkan screenshot Fritzing untuk rangkaian ini. Sertakan link berkas <code>.fzz</code>.</p>
+<h2 id="hasil">Hasil</h2>
+<p>Hasil eksperimen</p>
+<h2 id="foto-dan-video-eksperimen">Foto dan video eksperimen</h2>
+<p>Sertakan foto eksperimen dan link video singkat yang diunggah ke Youtube/Giphy.</p>
+<h2 id="pembahasan">Pembahasan</h2>
+<p>Bahas hal-hal yang baru, penting atau perlu untuk dijelaskan.</p>
+<h1 id="penutup">Penutup</h1>
+<p>Kesimpulan dan ringkasan manfaat dari rangkaian ini.</p>
+</body>
+</html>
