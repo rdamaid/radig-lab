@@ -24,25 +24,25 @@ Akhirnya, rangkaian diimplementasikan menggunakan *breadboard* dengan *power sup
 Berikut skema rangkaian untuk pengujian IC logika 7486 XOR.
 Berkas simulasi dapat diunduh di [xor-test.circ](xor-test.circ).
 
-![Logisim: 7486](xor-test_logisim.gif)
+![Simulasi XOR pada Logisim](xor-test_logisim.gif)
 
 ## Tabel kebenaran
 
 Berikut adalah tabel kebenaran dari simulasi rangkaian di atas.
 
-A   B   Y1  Y2  Y3  Y4
---- --- --- --- --- ---
-0   0   0   0   0   0
-0   1   1   1   1   1
-1   0   1   1   1   1
-1   1   0   0   0   0
+| A | B | Y1 | Y2 | Y3 | Y4 |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| 0 | 0 | 0  | 0  | 0  | 0  |
+| 0 | 1 | 1  | 1  | 1  | 1  |
+| 1 | 0 | 1  | 1  | 1  | 1  |
+| 1 | 1 | 0  | 0  | 0  | 0  |
 
 # Simulasi Verilog
 
 ## Kode Verilog
 
 Berikut kode Verilog yang mendeskripsikan rangkaian ini.
-Terdapat dua modul, yaitu modul deskripsi gerbang logika XOR (`_xor`) dan modul pengujian (`_xor_test`).
+Terdapat dua modul, yaitu modul `_xor` untuk deskripsi gerbang logika XOR dan modul pengujian `_xor_test`.
 Pada modul `_xor`, digunakan *assignment* dengan operator biner `^` untuk XOR.
 Operator lainnya adalah: `&`, `|`, dan `~` untuk AND, OR, dan NOT.
 Lalu, pada modul `_xor_test`, modul `_xor` dijalankan selama 4 detik, dengan perubahan nilai masukan A atau B tiap 1 detik.
@@ -76,30 +76,30 @@ endmodule
 
 Berikut tampilan diagram waktu hasil keluaran dari simulasi Verilog di atas.
 
-![Diagram waktu](xor-test_waveform.png)
+![Diagram waktu simulasi XOR](xor-test_waveform.png)
 
 
-# Eksperimen
+# Implementasi
 
-## Skema protoboard
+## Skema Breadboard
 
-Tampilkan screenshot Fritzing untuk rangkaian ini.
-Sertakan link berkas `.fzz`.
+Berikut skema *breadboard* untuk implementasi pengujian gerbang logika XOR.
+Catu daya diambil dari USB, karena IC 74LS memerlukan tegangan sebesar 5 Volt.
 
-## Hasil
+![Skema breadboard uji IC 74LS86](xor-test_bb.png)
 
-Hasil eksperimen
+## Hasil dan Pembahasan
 
+TODO: tambahkan hal-hal yang menurut anda penting untuk dibahas.
 
-## Foto dan video eksperimen
+## Foto Rangkaian
 
-Sertakan foto eksperimen dan link video singkat yang diunggah ke Youtube/Giphy.
+![Foto breadboard uji IC 74LS86](xor-test_bb.jpg)
 
-## Pembahasan
-
-Bahas hal-hal yang baru, penting atau perlu untuk dijelaskan.
+![Uji kebenaran kinerja IC 74LS86](xor-test_bb.gif)
 
 
 # Penutup
 
-Kesimpulan dan ringkasan manfaat dari rangkaian ini.
+Rangkaian ini berhasil menguji kebenaran kinerja IC 74LS86.
+Dari hasil eksperiman, keluaran IC sesuai dengan tabel kebenaran untuk gerbang logika XOR.
