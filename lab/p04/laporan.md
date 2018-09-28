@@ -85,14 +85,23 @@ Berikut tampilan diagram waktu hasil keluaran dari simulasi Verilog di atas.
 
 Berikut skema *breadboard* untuk implementasi pengujian gerbang logika XOR.
 Catu daya diambil dari USB, karena IC 74LS memerlukan tegangan sebesar 5 Volt.
+Skema ini dapat diunduh di [xor-test.fzz](xor-test.fzz).
 
 ![Skema breadboard uji IC 74LS86](xor-test_bb.png)
 
 ## Hasil dan Pembahasan
 
-TODO: tambahkan hal-hal yang menurut anda penting untuk dibahas.
+Semua gerbang logika XOR pada IC 74LS86 berfungsi dengan baik.
+Masukan berupa dua saklar, jika saklar ditekan maka masukan bernilai 1, sebaliknya bernilai 0.
+Keluaran berupa empat lampu LED, jika lampu menyala maka keluaran bernilai 1, sebaliknya bernilai 0.
+Berikut tabel pengujian IC 74LS86 pada *breadboard*, serta foto rangkaian tersebut.
 
-## Foto Rangkaian
+| A | B | Y1 | Y2 | Y3 | Y4 |
+| :-: | :-: | :-: | :-: | :-: | :-: |
+| 0 | 0 | 0  | 0  | 0  | 0  |
+| 0 | 1 | 1  | 1  | 1  | 1  |
+| 1 | 0 | 1  | 1  | 1  | 1  |
+| 1 | 1 | 0  | 0  | 0  | 0  |
 
 ![Foto breadboard uji IC 74LS86](xor-test_bb.jpg)
 
